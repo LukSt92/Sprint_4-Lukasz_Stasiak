@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CharacterPanel } from "./CharacterPanel";
 import styled from "styled-components";
+import Pagination from "@mui/material/Pagination";
 
 const StyledList = styled.div`
   display: flex;
@@ -28,10 +29,19 @@ export const CharactersList = () => {
   }
 
   return (
-    <StyledList>
-      {characters?.data.map(({ _id, imageUrl, name }) => (
-        <CharacterPanel key={_id} imageUrl={imageUrl} name={name} />
-      ))}
-    </StyledList>
+    <>
+      <StyledList>
+        {characters?.data.map(({ _id, imageUrl, name }) => (
+          <CharacterPanel key={_id} imageUrl={imageUrl} name={name} />
+        ))}
+      </StyledList>
+      <Pagination
+        count={10}
+        color="primary"
+        size="large"
+        sx={{ button: { color: "#ffffff" } }}
+        onChange={(e) => console.log(e.target.innerText)}
+      />
+    </>
   );
 };

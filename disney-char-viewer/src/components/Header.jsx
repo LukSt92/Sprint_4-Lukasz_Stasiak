@@ -4,7 +4,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import styled from "styled-components";
 
 const StyledHeader = styled.div`
-  width: 100vw;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
