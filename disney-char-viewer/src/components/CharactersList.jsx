@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CharacterPanel } from "./CharacterPanel";
 
 const BASE_URL = "https://api.disneyapi.dev/character?page=1";
 
@@ -22,10 +23,7 @@ export const CharactersList = () => {
   return (
     <div>
       {characters?.data.map(({ _id, imageUrl, name }) => (
-        <div key={_id}>
-          <img src={imageUrl} alt={name} />
-          <h3>{name}</h3>
-        </div>
+        <CharacterPanel key={_id} imageUrl={imageUrl} name={name} />
       ))}
     </div>
   );
