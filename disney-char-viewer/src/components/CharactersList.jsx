@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { CharacterPanel } from "./CharacterPanel";
+import styled from "styled-components";
+
+const StyledList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+`;
 
 const BASE_URL = "https://api.disneyapi.dev/character?page=1";
 
@@ -21,10 +28,10 @@ export const CharactersList = () => {
   }
 
   return (
-    <div>
+    <StyledList>
       {characters?.data.map(({ _id, imageUrl, name }) => (
         <CharacterPanel key={_id} imageUrl={imageUrl} name={name} />
       ))}
-    </div>
+    </StyledList>
   );
 };
