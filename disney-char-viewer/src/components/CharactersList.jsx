@@ -9,20 +9,21 @@ const StyledList = styled.div`
   justify-content: center;
 `;
 
-const BASE_URL = "https://api.disneyapi.dev/character?page=1";
+const BASE_URL = "https://api.disneyapi.dev/character?page=";
 
 export const CharactersList = () => {
   const [characters, setCharacters] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState("1");
 
   useEffect(() => {
     (async () => {
-      const data = await fetch(BASE_URL);
+      const data = await fetch(`${BASE_URL}${currentPage}`);
       const response = await data.json();
       setCharacters(response);
       setLoading(false);
     })();
-  }, []);
+  }, [currentPage]);
 
   if (loading) {
     return <h2>Loading characters...</h2>;
@@ -40,7 +41,7 @@ export const CharactersList = () => {
         color="primary"
         size="large"
         sx={{ button: { color: "#ffffff" } }}
-        onChange={(e) => console.log(e.target.innerText)}
+        onChange={(e) => setCurrentPage(e.target.innerText)}
       />
     </>
   );
