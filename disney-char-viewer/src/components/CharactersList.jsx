@@ -6,7 +6,7 @@ import Pagination from "@mui/material/Pagination";
 const StyledList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100vw;
+  justify-content: center;
 `;
 
 const BASE_URL = "https://api.disneyapi.dev/character?page=1";
