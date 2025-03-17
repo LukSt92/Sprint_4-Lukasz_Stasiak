@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CharacterPanel } from "./CharacterPanel";
 import { useCharactersList } from "./useCharactersList";
 import styled from "styled-components";
@@ -28,7 +28,7 @@ export const CharactersList = () => {
         ))}
       </StyledList>
       <Pagination
-        count={10}
+        count={data?.info.totalPages0}
         color="primary"
         size="large"
         sx={{ button: { color: "#ffffff" } }}
