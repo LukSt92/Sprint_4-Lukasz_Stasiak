@@ -10,11 +10,14 @@ const StyledHeader = styled.div`
   align-items: center;
 `;
 
-export const Header = () => {
+export const Header = ({ setIsDarkMode }) => {
   return (
     <StyledHeader>
       <h2>Disney APP</h2>
-      <FormControlLabel control={<Switch />} label="Theme" />
+      <FormControlLabel
+        control={<Switch onChange={() => setIsDarkMode((prev) => !prev)} />}
+        label="Theme"
+      />
     </StyledHeader>
   );
 };

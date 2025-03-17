@@ -10,7 +10,7 @@ const StyledList = styled.div`
   justify-content: center;
 `;
 
-export const CharactersList = () => {
+export const CharactersList = ({ isDarkMode }) => {
   const { data, error, isLoading, currentPage, handlePageChange } =
     useCharactersList();
 
@@ -28,10 +28,10 @@ export const CharactersList = () => {
         ))}
       </StyledList>
       <Pagination
-        count={data?.info.totalPages0}
+        count={data?.info.totalPages}
         color="primary"
         size="large"
-        sx={{ button: { color: "#ffffff" } }}
+        sx={{ button: { color: isDarkMode ? "#000" : "#fff" } }}
         onChange={(e) => handlePageChange(e.target.innerText)}
         page={currentPage}
       />

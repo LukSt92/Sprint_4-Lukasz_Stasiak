@@ -6,7 +6,7 @@ const StyledPanel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid white;
+  border: ${(props) => props.theme.border};
   border-radius: 8px;
   margin: 16px;
   padding: 8px;

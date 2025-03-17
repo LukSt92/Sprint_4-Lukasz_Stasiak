@@ -1,20 +1,30 @@
 import "./App.css";
 import { CharactersList } from "./components/CharactersList";
 import { Header } from "./components/Header";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { useState } from "react";
+import { lightTheme, darkTheme } from "./theme";
 
 const StyledMainContener = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background-color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const theme = isDarkMode ? lightTheme : darkTheme;
+
   return (
-    <StyledMainContener>
-      <Header />
-      <CharactersList />
-    </StyledMainContener>
+    <ThemeProvider theme={theme}>
+      <StyledMainContener>
+        <Header setIsDarkMode={setIsDarkMode} />
+        <CharactersList isDarkMode={isDarkMode} />
+      </StyledMainContener>
+    </ThemeProvider>
   );
 }
 
