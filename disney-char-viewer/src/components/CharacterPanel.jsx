@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "@mui/material";
 import styled from "styled-components";
+import { CharacterModal } from "./CharacterModal";
 
 const StyledPanel = styled.div`
   display: flex;
@@ -20,11 +22,24 @@ const StyledImg = styled.img`
 `;
 
 export const CharacterPanel = ({ imageUrl, name }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modal = createPortal(
+    <CharacterModal
+      isModalOpen={isModalOpen}
+      setIsModalOpen={setIsModalOpen}
+    />,
+    document.body
+  );
+
   return (
     <StyledPanel>
       <StyledImg src={imageUrl} alt={name} />
       <h3>{name}</h3>
-      <Button variant="contained">Learn more</Button>
+      <Button variant="contained" onClick={() => setIsModalOpen(true)}>
+        Learn more
+      </Button>
+      {isModalOpen && modal}
     </StyledPanel>
   );
 };

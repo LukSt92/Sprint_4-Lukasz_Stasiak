@@ -5,8 +5,6 @@ export const useFetch = (url) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log("useFetch", data);
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
