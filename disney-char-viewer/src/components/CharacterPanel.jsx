@@ -21,13 +21,14 @@ const StyledImg = styled.img`
   object-fit: fill;
 `;
 
-export const CharacterPanel = ({ imageUrl, name }) => {
+export const CharacterPanel = ({ imageUrl, name, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modal = createPortal(
     <CharacterModal
       isModalOpen={isModalOpen}
       setIsModalOpen={setIsModalOpen}
+      id={id}
     />,
     document.body
   );

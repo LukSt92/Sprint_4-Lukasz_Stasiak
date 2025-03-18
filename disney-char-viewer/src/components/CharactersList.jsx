@@ -24,7 +24,7 @@ export const CharactersList = ({ isDarkMode }) => {
     <>
       <StyledList>
         {data?.data.map(({ _id, imageUrl, name }) => (
-          <CharacterPanel key={_id} imageUrl={imageUrl} name={name} />
+          <CharacterPanel key={_id} imageUrl={imageUrl} name={name} id={_id} />
         ))}
       </StyledList>
       <Pagination
