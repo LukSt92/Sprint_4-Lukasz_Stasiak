@@ -1,4 +1,4 @@
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 import { useState } from "react";
 
 const url = "https://api.disneyapi.dev/character?page=";

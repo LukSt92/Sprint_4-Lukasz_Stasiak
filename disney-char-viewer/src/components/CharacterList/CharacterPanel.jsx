@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@mui/material";
 import styled from "styled-components";
-import { CharacterModal } from "./CharacterModal";
+import { CharacterModal } from "../Modal/CharacterModal";
 
 const StyledPanel = styled.div`
   display: flex;

@@ -31,7 +31,7 @@ export const CharactersList = ({ isDarkMode }) => {
         count={data?.info.totalPages}
         color="primary"
         size="large"
-        sx={{ button: { color: isDarkMode ? "#000" : "#fff" } }}
+        sx={{ button: { color: isDarkMode ? "#fff" : "#000" } }}
         onChange={(e) => handlePageChange(e.target.innerText)}
         page={currentPage}
       />

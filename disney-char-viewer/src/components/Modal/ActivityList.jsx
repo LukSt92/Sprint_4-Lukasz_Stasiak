@@ -1,5 +1,3 @@
-import React from "react";
-
 export const ActivityList = ({ array, name }) => {
   return (
     <>

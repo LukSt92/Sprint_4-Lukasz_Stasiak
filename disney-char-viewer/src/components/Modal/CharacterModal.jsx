@@ -1,4 +1,3 @@
-import React from "react";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import { useCharacterModal } from "./useCharacterModal";
@@ -29,9 +28,11 @@ const StyledActivityContainer = styled.div`
 `;
 
 export const CharacterModal = ({ isModalOpen, setIsModalOpen, id }) => {
-  const { data } = useCharacterModal(id);
+  const { data, error, isLoading } = useCharacterModal(id);
 
   const handleClose = () => setIsModalOpen(false);
+
+  if (error) return <h2>{error}</h2>;
 
   return (
     <Modal
@@ -40,6 +41,7 @@ export const CharacterModal = ({ isModalOpen, setIsModalOpen, id }) => {
       aria-labelledby="modal-modal-title"
     >
       <StyledDiv>
+        {isLoading && <h3>Character data is loading...</h3>}
         <StyledImg src={data?.data.imageUrl} alt={data?.data.name} />
         <h3>{data?.data.name}</h3>
         <StyledActivityContainer>

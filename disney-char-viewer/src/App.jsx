@@ -1,5 +1,5 @@
 import "./App.css";
-import { CharactersList } from "./components/CharactersList";
+import { CharactersList } from "./components/CharacterList/CharactersList";
 import { Header } from "./components/Header";
 import styled, { ThemeProvider } from "styled-components";
 import { useState } from "react";
@@ -16,7 +16,7 @@ const StyledMainContener = styled.div`
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const theme = isDarkMode ? lightTheme : darkTheme;
+  const theme = isDarkMode ? darkTheme : lightTheme;
 
   return (
     <ThemeProvider theme={theme}>
