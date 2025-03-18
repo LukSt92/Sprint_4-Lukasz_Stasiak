@@ -8,6 +8,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: ${(props) => props.theme.border};
 `;
 
 export const Header = ({ setIsDarkMode }) => {
